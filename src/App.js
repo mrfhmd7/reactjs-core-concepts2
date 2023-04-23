@@ -1,7 +1,37 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+  return (
+    <div className='App'>
+      <Counter></Counter>
+    </div>
+  );
+};
+
+function Counter() {
+  const [count, setCount] = useState(0);
+  const increaseCount = () => setCount(count + 1);
+  const decreaseCount = () => setCount(count - 1);
+
+  // const increaseCount = () => {
+  //   const newCount = count + 1;
+  //   setCount(newCount)
+  // }
+
+  return (
+    <div >
+      <h1>Count: {count}</h1>
+      <button onClick={increaseCount}>Increase </button>
+      <br/>
+      <button onClick={decreaseCount}>Decrease</button>
+    </div>
+  );
+};
+
+/*
+ function App() {
   const products = [
     { name: 'Laptop', price: 120000 },
     { name: 'Phone', price: 75000 },
@@ -10,22 +40,23 @@ function App() {
   ];
   return (
     <div className="App">
-      {/* <Product name='laptop' price='45000'></Product>
-      <Product name='phone' price='75000'></Product> */}
+      <Product name='laptop' price='45000'></Product>
+      <Product name='phone' price='75000'></Product>
       {
         products.map(product => <Product name={product.name} price={product.price}></Product>)
       }
     </div>
   );
-};
+}; 
+*/
 
-function Product(props) {
+/* function Product(props) {
   return (
     <div className='product'>
       <h3>Name: {props.name}</h3>
       <p>Price: {props.price}</p>
     </div>
   );
-};
+}; */
 
 export default App;
